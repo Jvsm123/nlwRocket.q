@@ -9,18 +9,20 @@
 
 html
 {
-    --black: #082448;
+    --black: #0D114F;
     --white: #FAFAFA;
     --light-blue: #E0ECFF;
-    --blue: #3458FF;
+    --blue: #3485FF;
     --red: #E83F58;
+
     --overlay: #040911;
     --background: #F6FAFF;
     --icons-details: #A5B0C1;
 
     --gray-dark: #4D5E77;
     --gray-blue: #A1B2CD;
-    --gray-light: #ESEAF1;
+    --gray-light: #EAEAF1;
+    --gray-medium: #EAECF2;
 
     font-size: 62.5%;
 }
@@ -28,6 +30,9 @@ html
 body
 {
     height: 100vh;
+
+    display: flex;
+
     background: var( --background );
 }
 
@@ -66,7 +71,7 @@ input, button, .button
 
 button, .button
 {
-    font-family:  'Poppins';
+    font-family: 'Poppins';
     font-weight: 500;
     line-height: 0;
 
@@ -88,7 +93,7 @@ button:hover,
     filter: brightness( 1.2 );
 }
 
-button > img
+button > img,
 .button > img
 {
     margin-right: 1rem;
@@ -102,6 +107,22 @@ button.outlined,
     color: var( --blue );
     border: .2rem solid var( --blue );
 }
+
+button.red,
+.button.red
+{
+    background: var( --red );
+    color: var( --white );
+}
+
+button.gray,
+.button.gray
+{
+    background: var( --gray-light );
+    color: var( --gray-dark );
+}
+
+/** HEADER **/
 
 .content header
 {
