@@ -4,21 +4,16 @@
 
     <head>
         <title>Criar Sala - Roquet.Q</title>
-
         <!-- X-UA -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-
         <!-- Char -->
         <meta charset="UTF-8">
-
         <!-- View Port -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta>
-
         <!-- CSS -->
-        <link rel="stylesheet" href="global/styles/main.css"/>
-        <link rel="stylesheet" href="global/styles/home.css"/>
-
+        <link type="text/css" rel="stylesheet" href="/styles/main.css"/>
+        <link type="text/css" rel="stylesheet" href="/styles/home.css"/>
         <!-- FONTS -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,46 +21,22 @@
     </head>
 
     <body>
-
         <div id="home" class="content">
-
             <header>
-                <img src="assets/Logo.svg" alt="Rocket.Q Logo"/>
+                <a href="/">
+                    <img src="/images/Logo.svg" alt="Rocket.Q Logo"/>
+                </a>
             </header>
-
             <div id="bg">
                 <div class="ball top"></div>
                 <div class="ball bottom"></div>
             </div>
-
             <main>
-
                 <div class="container">
-
-                    <section>
-
-                        <h2>Crie sua própria sala</h2>
-
-                        <form action="#">
-
-                            <label class="sr-only" for="codigo">Insira uma senha</label>
-                            <input type="password" id="codigo" placeholder="Insira uma senha">
-
-                            <button>
-                                <img src="assets/user_white.svg" alt="Entrar na sala">
-                                Criar Sala
-                            </button>
-
-                        </form>
-
-                    </section>
-
+                    <!-- RENDER -->
+                    <%- include(`parts/${page}`) %>
                 </div>
-
             </main>
-
         </div>
-
     </body>
-
-</html>
+</html>    

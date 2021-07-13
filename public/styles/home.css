@@ -19,7 +19,7 @@ header
 {
    grid-area: left;
 
-   background: url(../../assets/Ilustração.svg) no-repeat top/contain;
+   background: url(../images/Ilustração.svg) no-repeat top/contain;
 
    background-position-x: -1.5rem;
 }
@@ -50,6 +50,8 @@ input
 {
    border: .2rem solid var( --gray-blue );
    padding: 0 1.6rem;
+
+   outline: none;
 }
 
 input, button, .button
