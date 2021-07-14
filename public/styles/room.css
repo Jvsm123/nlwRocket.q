@@ -181,3 +181,33 @@
 {
    background: var( --gray-blue );
 }
+
+/*** No QUESTIONS ***/
+.noquest
+{
+   text-align: center;
+   margin-top: 5.2rem;
+}
+
+.noquest img
+{
+   max-width: 100%;
+   margin-bottom: 1.2rem;
+}
+
+.noquest p:nth-child( 2 )
+{
+   font-family: 'Poppins';
+   font-size: 1.8rem;
+   font-weight: 600;
+   color: var( --gray-dark );
+}
+
+.noquest p:nth-child( 3 )
+{
+   font-family: 'Open Sans';
+   font-size: 1.4rem;
+   margin-top: 1.3rem;
+   color: var( --gray-dark );
+   line-height: 2rem;
+}

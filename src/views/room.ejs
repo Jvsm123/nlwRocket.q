@@ -30,11 +30,11 @@
                     <img src="/images/Logo.svg" alt="Rocket.Q Logo"/>
                 </a>
                 <div class="buttons">
-                    <div class="button outlined" id='room-id' data-id="<%= req.params.id %>">
-                        <%= req.params.id %>
+                    <div class="button outlined" id='room-id' data-id="<%= Id %>">
+                        <%= Id %>
                         <img src="/images/copy.svg" alt="Copiar número da sala">
                     </div>
-                    <a class="button" href="#">
+                    <a class="button" href="/pass">
                         Criar Sala
                         <img src="/images/user_white.svg" alt="Criar sala">
                     </a>
@@ -43,7 +43,7 @@
             <main>
                 <section id="quizform">
                     <h2>Faça sua pergunta</h2>
-                    <form action="">
+                    <form action="/room/create/<%= Id %>" method="POST">
                         <label class="sr-only" for="question">O que você quer perguntar</label>
                         <textarea id="question" name="question" placeholder="O que você quer perguntar"></textarea>
                         <footer>
@@ -58,90 +58,73 @@
                 <section id="quiz">
                     <h2 class="sr-only">Perguntas da Comunidade</h2>
                     <div class="quizes">
-                        <div class="quiz-wrapper">
-                            <div class="quiz-content">
-                                <div class="user">
-                                    <img src="/images/user_gray.svg" alt="Avatar"/>
+
+                        <%
+                            if( isNoQuestions )
+                            {
+                        %>
+                                <%- include( 'parts/noquestions' )  %>
+                        <%
+                            }
+                        %>
+
+                        <%
+                            questions.forEach( question =>
+                            {
+                        %>
+                            <div class="quiz-wrapper">
+                                <div class="quiz-content">
+                                    <div class="user">
+                                        <img src="/images/user_gray.svg" alt="Avatar"/>
+                                    </div>
+                                    <div class="quiz">
+                                        <p>
+                                            <%= question.title %>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="quiz">
-                                    <p>
-                                        Qual a diferênça entre const, var e let no JavaScript?
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="action">
-                                <a href="#" class="check" data-id='2'>
-                                    <img src="/images/check.svg" alt="Marcar como Lido"/>
-                                    Marcar como Lido
-                                </a>
-                                <a href="#" class="delete" data-id='2'>
-                                    <img src="/images/trash.svg" alt="Apagar"/>
-                                    Apagar
-                                </a>
-                            </div>
-                        </div>
-                        <div class="quiz-wrapper">
-                            <div class="quiz-content">
-                                <div class="user">
-                                    <img src="/images/user_gray.svg" alt="Avatar"/>
-                                </div>
-                                <div class="quiz">
-                                    <p>
-                                        O que é JavaScript?
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="action">
-                                <a href="#" class="check" data-id="3">
-                                    <img src="/images/check.svg" alt="Marcar como Lido"/>
-                                    Marcar como Lido
-                                </a>
-                                <a href="#" class="delete" data-id="3">
-                                    <img src="/images/trash.svg" alt="Apagar"/>
-                                    Apagar
-                                </a>
-                            </div>
-                        </div>
-                        <div class="quiz-wrapper read">
-                            <div class="quiz-content">
-                                <div class="user">
-                                    <img src="/images/user_gray.svg" alt="Avatar"/>
-                                </div>
-                                <div class="quiz">
-                                    <p>
-                                        O que é TypeScript?
-                                    </p>
+                                <div class="action">
+                                    <a href="#" class="check" data-id=<%= question.id %>>
+                                        <img src="/images/check.svg" alt="Marcar como Lido"/>
+                                        Marcar como Lido
+                                    </a>
+                                    <a href="#" class="delete" data-id=<%= question.id %>>
+                                        <img src="/images/trash.svg" alt="Apagar"/>
+                                        Apagar
+                                    </a>
                                 </div>
                             </div>
-                            <div class="action">
-                                <a href="#" class="delete" data-id="4">
-                                    <img src="/images/trash.svg" alt="Apagar"/>
-                                    Apagar
-                                </a>
-                            </div>
-                        </div>
-                        <div class="quiz-wrapper">
-                            <div class="quiz-content">
-                                <div class="user">
-                                    <img src="/images/user_gray.svg" alt="Avatar"/>
+
+                        <%
+                            });
+                        %>
+
+                        <%
+                            questionsRead.forEach( questionRead =>
+                            {
+                        %>
+                            <div class="quiz-wrapper read">
+                                <div class="quiz-content">
+                                    <div class="user">
+                                        <img src="/images/user_gray.svg" alt="Avatar"/>
+                                    </div>
+                                    <div class="quiz">
+                                        <p>
+                                            <%= questionRead.title %>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="quiz">
-                                    <p>
-                                        Você sabe como melhorar para alcançar o que é necessário para ser ter um resultado satisfatório nos seus estudos? E outra, como foi sua trajetória?
-                                    </p>
+                                <div class="action">
+                                    <a href="#" class="delete" data-id=<%= questionRead.id %>>
+                                        <img src="/images/trash.svg" alt="Apagar"/>
+                                        Apagar
+                                    </a>
                                 </div>
                             </div>
-                            <div class="action">
-                                <a href="#" class="check" data-id="1">
-                                    <img src="/images/check.svg" alt="Marcar como Lido"/>
-                                    Marcar como Lido
-                                </a>
-                                <a href="#" class="delete" data-id="1">
-                                    <img src="/images/trash.svg" alt="Apagar"/>
-                                    Apagar
-                                </a>
-                            </div>
-                        </div>
+                        <%
+                            });
+                        %>
+
                     </div>
                 </section>
             </main>
